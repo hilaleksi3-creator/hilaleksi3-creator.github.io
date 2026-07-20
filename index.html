@@ -3,233 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hilal Ekşi | Dijital Çözüm Mimarı</title>
+    <title>Hilal Ekşi | Web Tasarım & Dijital Altyapı Çözümleri</title>
+    <!-- Tailwind CSS ve FontAwesome İkonları -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* 1. Temel Ayarlar ve Animasyonlu Arka Plan */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif; /* Daha modern bir yazı tipi */
-        }
-
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        body {
-            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            color: #fff;
-        }
-
-        /* 2. Glassmorphism Konteyner (Cam Efekti) */
-        .container {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            max-width: 800px;
-            width: 100%;
-            padding: 50px 30px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        /* 3. Profil Bölümü */
-        .profile-img {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            margin: 0 auto 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 40px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        h1 {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 5px;
-            letter-spacing: -1px;
-        }
-
-        .subtitle {
-            font-size: 14px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 30px;
-        }
-
-        /* 4. Teferruatlı Hizmet Kartları */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
-            text-align: left;
-        }
-
-        .service-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .service-icon {
-            font-size: 24px;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .service-card h3 {
-            font-size: 16px;
-            margin-bottom: 8px;
-            color: #fff;
-        }
-
-        .service-card p {
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.7);
-            line-height: 1.5;
-        }
-
-        /* 5. Şekilli Butonlar */
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: #fff;
-            color: #333;
-            text-decoration: none;
-            padding: 15px 35px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 16px;
-            margin-bottom: 30px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255,255,255,0.2);
-        }
-
-        .cta-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(255,255,255,0.3);
-        }
-
-        .cta-button span {
-            margin-right: 10px;
-        }
-
-        /* 6. Sosyal Linkler Bölümü */
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 30px;
-            font-size: 13px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .social-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .footer {
-            margin-top: 40px;
-            font-size: 11px;
-            color: rgba(255, 255, 255, 0.5);
-            letter-spacing: 1px;
-        }
-
-        /* 7. Mobil Uyumluluk */
-        @media (max-width: 600px) {
-            .container { padding: 30px 20px; }
-            h1 { font-size: 26px; }
-            .services-grid { grid-template-columns: 1fr; }
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass { background: rgba(255, 255, 255, 0.04); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
     </style>
-    <!-- Modern Yazı Tipi İçe Aktarma -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="bg-[#0b0f19] text-gray-100 overflow-x-hidden min-h-screen relative selection:bg-indigo-500 selection:text-white">
 
-    <div class="container">
-        <!-- Profil Bölümü -->
-        <div class="profile-img">🧑‍💻</div>
-        <h1>Hilal Ekşi</h1>
-        <div class="subtitle">Dijital Çözüm Mimarı | Bilgisayar Mühendisi 🚀</div>
+    <!-- Arka Plan Işık Efektleri -->
+    <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-indigo-600/20 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute bottom-[20%] right-[-10%] w-[600px] h-[600px] bg-purple-600/15 rounded-full blur-[150px] pointer-events-none"></div>
 
-        <!-- Hizmet Kartları Grid Yapısı -->
-        <div class="services-grid">
-            <!-- Kart 1: Shopier Entegrasyon -->
-            <div class="service-card">
-                <span class="service-icon">🛍️</span>
-                <h3>Shopier Entegrasyonu</h3>
-                <p>İşletmeniz için kredi kartıyla güvenli ödeme alan, kargo otomasyonlu profesyonel Shopier dükkanınızı kuruyorum.</p>
-            </div>
+    <!-- ÜST MENÜ -->
+    <nav class="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center relative z-10">
+        <div class="text-xl font-bold tracking-tight text-white">
+            hilal<span class="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">ekşi</span>
+            <span class="text-[10px] font-medium text-indigo-300 border border-indigo-500/30 px-2 py-0.5 rounded-full ml-1.5 tracking-widest uppercase">Mühendislik Öğrencisi</span>
+        </div>
+        <div class="flex items-center gap-6">
+            <a href="#about" class="text-sm font-medium text-gray-400 hover:text-white transition">Hakkımda</a>
+            <a href="#services" class="text-sm font-medium text-gray-400 hover:text-white transition">Hizmetler</a>
+            <!-- KENDİ TELEFONUNUZU YAZIN: 905xxxxxxxxx kısmını kendi numaranızla değiştirin -->
+            <a href="https://wa.me/905416623453" class="glass px-5 py-2 rounded-full text-xs font-semibold tracking-wide hover:bg-white hover:text-black transition duration-300">
+                <i class="fa-brands fa-whatsapp mr-1 text-emerald-400"></i> İletişim
+            </a>
+        </div>
+    </nav>
 
-            <!-- Kart 2: Web Altyapı -->
-            <div class="service-card">
-                <span class="service-icon">🌐</span>
-                <h3>Anahtar Teslim Web</h3>
-                <p>Müşteriye özel, hızlı, modern ve mobil uyumlu mikro web sitelerini (Landing Page) tasarlayıp anahtar teslim kuruyorum.</p>
-            </div>
+    <!-- KAHRAMAN ALANI -->
+    <header class="max-w-5xl mx-auto px-6 pt-20 pb-12 text-center relative z-10">
+        <span class="px-4 py-1.5 rounded-full glass text-xs font-medium text-indigo-300 inline-block mb-6 tracking-wide uppercase">
+            🚀 Modern ve Hızlı Web Çözümleri
+        </span>
+        <h1 class="text-4xl md:text-7xl font-extrabold tracking-tight max-w-4xl mx-auto leading-none">
+            İşletmeniz İçin <br>
+            <span class="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Dijital Vitrin Tasarımı</span>
+        </h1>
+        <p class="mt-8 text-gray-400 max-w-2xl mx-auto text-base md:text-lg font-light leading-relaxed">
+            Karmaşık sunucu süreçleriyle uğraşmayın. İşletmeniz veya markanız için modern, şık ve mobil uyumlu web sitelerini doğrudan benimle iletişim kurarak hızlıca hazırlatın.
+        </p>
+        <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
+            <a href="#services" class="w-full sm:w-auto bg-gradient-to-r from-indigo-500 to-purple-600 px-8 py-3.5 rounded-xl font-medium shadow-lg shadow-indigo-500/20 hover:opacity-95 transition">
+                Hizmetleri İncele
+            </a>
+            <!-- KENDİ TELEFONUNUZU YAZIN -->
+            <a href="https://wa.me/905416623453" class="w-full sm:w-auto glass px-8 py-3.5 rounded-xl font-medium hover:bg-white/5 transition flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp text-emerald-400 text-lg"></i> WhatsApp'tan Sorun
+            </a>
+        </div>
+    </header>
 
-            <!-- Kart 3: Teknik DNS -->
-            <div class="service-card">
-                <span class="service-icon">🛠️</span>
-                <h3>Teknik Altyapı & DNS</h3>
-                <p>Müşterilerinizin korktuğu .com alan adı yönlendirmeleri, DNS kayıtları ve SSL sertifikası süreçlerini tamamen ben üstleniyorum.</p>
+    <!-- HAKKIMDA (Dürüst ve Samimi Alan) -->
+    <section id="about" class="max-w-4xl mx-auto px-6 py-16 relative z-10">
+        <div class="glass rounded-3xl p-8 md:p-12 border-white/5 bg-gradient-to-b from-white/[0.01] to-transparent">
+            <div class="flex flex-col md:flex-row gap-8 items-center">
+                <div class="w-24 h-24 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-600 flex items-center justify-center text-3xl font-bold text-white shadow-xl shadow-indigo-500/10 shrink-0">
+                    HE
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-white mb-3">Ben Kimim?</h2>
+                    <p class="text-gray-300 text-sm md:text-base font-light leading-relaxed mb-4">
+                        Merhaba, ben Hilal Ekşi. Haliç Üniversitesi Bilgisayar Mühendisliği öğrencisiyim. Üniversitede aldığım mühendislik temelini pratik projelerle birleştiriyor, modern web teknolojilerini kullanarak şık arayüzler geliştiriyorum.
+                    </p>
+                    <p class="text-gray-400 text-sm font-light leading-relaxed">
+                        Büyük ajansların karmaşık süreçleri yerine, işletmenizin ihtiyacı olan sade, hızlı ve modern dijital vitrini doğrudan sizinle konuşarak hazırlıyorum. Sitenizin yayına alınması ve kurulum süreçlerinde tamamen yanınızdayım. Projeleriniz için hazırım!
+                    </p>
+                </div>
             </div>
         </div>
+    </section>
 
-        <!-- ANA CTA BUTONU (Shopier linki buraya gelecek) -->
-        <a href="#" class="cta-button">
-            <span>🚀</span> Hemen Hizmet Satın Al
-        </a>
-
-        <!-- Sosyal Linkler -->
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/hilal-ek%C5%9Fi-056058292/" target="_blank" class="social-btn">🔗 LinkedIn</a>
-            <a href="mailto:hilaleksi3@icloud.com" class="social-btn">✉️ Mail Gönder</a>
+    <!-- HİZMETLER -->
+    <section id="services" class="max-w-7xl mx-auto px-6 py-16 relative z-10">
+        <div class="text-center mb-16">
+            <h2 class="text-2xl md:text-4xl font-bold tracking-tight">Neler Yapıyorum?</h2>
+            <p class="text-gray-400 text-sm mt-2">Bütün süreçte doğrudan benimle birebir iletişimde olacaksınız.</p>
         </div>
 
-        <div class="footer">
-            © 2026 hilaleksi.com | TEKNİK ALTYAPI ÇÖZÜMLERİ
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- HİZMET 1: Ufak Web Sitesi -->
+            <div class="glass rounded-2xl overflow-hidden border-white/5 flex flex-col justify-between bg-gradient-to-b from-white/[0.02] to-transparent">
+                <div class="p-8">
+                    <span class="px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 text-[10px] font-semibold tracking-wider uppercase inline-block mb-4">Popüler</span>
+                    <h3 class="text-xl font-bold text-white mb-2">Ufak Web Sitesi Kurulumu</h3>
+                    <p class="text-gray-400 text-xs font-light mb-6 leading-relaxed">Kişisel markanız veya lokal işletmeniz için modern, cam efektli ve şık bir tanıtım sitesi.</p>
+                    <ul class="space-y-3 text-xs text-gray-300 font-light border-t border-white/5 pt-4">
+                        <li><i class="fa-solid fa-check text-indigo-400 mr-2"></i> Modern 1-3 Sayfa Tasarımı</li>
+                        <li><i class="fa-solid fa-check text-indigo-400 mr-2"></i> Mobil (Telefon) Uyumlu Düzen</li>
+                        <li><i class="fa-solid fa-check text-indigo-400 mr-2"></i> Ekstra Sunucu Masrafı Olmayan Altyapı</li>
+                        <li><i class="fa-solid fa-check text-indigo-400 mr-2"></i> 48 Saatte Hızlı Teslimat</li>
+                    </ul>
+                </div>
+                <div class="p-8 border-t border-white/5 bg-white/[0.01]">
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-xs text-gray-400">Sabit Fiyat</span>
+                        <span class="text-xl font-bold text-white">2.499 TL</span>
+                    </div>
+                    <!-- KENDİ TELEFONUNUZU YAZIN -->
+                    <a href="https://wa.me/905416623453?text=Merhaba%20Hilal%20Hanim,%20Ufak%20Web%20Sitesi%20paketi%20hakkinda%20bilgi%20alabilir%20miyim?" class="block text-center bg-white text-black text-xs font-semibold py-3 rounded-xl hover:bg-gray-100 transition">
+                        <i class="fa-brands fa-whatsapp mr-1.5 text-emerald-600"></i> WhatsApp'tan Konuşalım
+                    </a>
+                </div>
+            </div>
+
+            <!-- HİZMET 2: E-Ticaret Altyapısı -->
+            <div class="glass rounded-2xl overflow-hidden border-white/5 flex flex-col justify-between bg-gradient-to-b from-white/[0.02] to-transparent">
+                <div class="p-8">
+                    <span class="px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 text-[10px] font-semibold tracking-wider uppercase inline-block mb-4">Gelişmiş</span>
+                    <h3 class="text-xl font-bold text-white mb-2">E-Ticaret & Ürün Vitrini</h3>
+                    <p class="text-gray-400 text-xs font-light mb-6 leading-relaxed">Ürünlerinizi internette sergileyebileceğiniz ve Shopier ile güvenli ödeme alabileceğiniz altyapı.</p>
+                    <ul class="space-y-3 text-xs text-gray-300 font-light border-t border-white/5 pt-4">
+                        <li><i class="fa-solid fa-check text-purple-400 mr-2"></i> Şık Ürün Listeleme Alanı</li>
+                        <li><i class="fa-solid fa-check text-purple-400 mr-2"></i> Shopier Entegrasyon Desteği</li>
+                        <li><i class="fa-solid fa-check text-purple-400 mr-2"></i> Kolay Yönetilebilir Dijital Düzen</li>
+                        <li><i class="fa-solid fa-check text-purple-400 mr-2"></i> 4 İş Gününde Teslimat</li>
+                    </ul>
+                </div>
+                <div class="p-8 border-t border-white/5 bg-white/[0.01]">
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-xs text-gray-400">Sabit Fiyat</span>
+                        <span class="text-xl font-bold text-white">4.999 TL</span>
+                    </div>
+                    <!-- KENDİ TELEFONUNUZU YAZIN -->
+                    <a href="https://wa.me/905416623453?text=Merhaba%20Hilal%20Hanim,%20E-Ticaret%20paketi%20hakkinda%20bilgi%20alabilir%20miyim?" class="block text-center bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-xs font-semibold py-3 rounded-xl hover:opacity-95 transition shadow-lg shadow-indigo-500/10">
+                        <i class="fa-brands fa-whatsapp mr-1.5 text-white"></i> WhatsApp'tan Konuşalım
+                    </a>
+                </div>
+            </div>
+
+            <!-- HİZMET 3: Sayfa Hızlandırma -->
+            <div class="glass rounded-2xl overflow-hidden border-white/5 flex flex-col justify-between bg-gradient-to-b from-white/[0.02] to-transparent">
+                <div class="p-8">
+                    <span class="px-3 py-1 rounded-full bg-pink-500/10 text-pink-400 text-[10px] font-semibold tracking-wider uppercase inline-block mb-4">Hız</span>
+                    <h3 class="text-xl font-bold text-white mb-2">Web Sitesi Hızlandırma</h3>
+                    <p class="text-gray-400 text-xs font-light mb-6 leading-relaxed">Mevcut web sitenizin yavaş açılma sorunlarını çözen, kodları hafifleten performans bakımı.</p>
+                    <ul class="space-y-3 text-xs text-gray-300 font-light border-t border-white/5 pt-4">
+                        <li><i class="fa-solid fa-check text-pink-400 mr-2"></i> Gereksiz Kod Yığınlarının Temizliği</li>
+                        <li><i class="fa-solid fa-check text-pink-400 mr-2"></i> Görsel Boyutlarının Optimize Edilmesi</li>
+                        <li><i class="fa-solid fa-check text-pink-400 mr-2"></i> Google Hız Testi İyileştirmeleri</li>
+                        <li><i class="fa-solid fa-check text-pink-400 mr-2"></i> 24 Saatte Hızlı Çözüm</li>
+                    </ul>
+                </div>
+                <div class="p-8 border-t border-white/5 bg-white/[0.01]">
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-xs text-gray-400">Sabit Fiyat</span>
+                        <span class="text-xl font-bold text-white">1.499 TL</span>
+                    </div>
+                    <!-- KENDİ TELEFONUNUZU YAZIN -->
+                    <a href="https://wa.me/905416623453?text=Merhaba%20Hilal%20Hanim,%20Web%20Sitesi%20Hizlandirma%20paketi%20hakkinda%20bilgi%20alabilir%20miyim?" class="block text-center bg-white text-black text-xs font-semibold py-3 rounded-xl hover:bg-gray-100 transition">
+                        <i class="fa-brands fa-whatsapp mr-1.5 text-emerald-600"></i> WhatsApp'tan Konuşalım
+                    </a>
+                </div>
+            </div>
+
         </div>
-    </div>
+    </section>
+
+    <!-- İLETİŞİM ALANI -->
+    <section id="contact" class="max-w-4xl mx-auto px-6 py-20 relative z-10">
+        <div class="glass rounded-3xl p-8 md:p-12 text-center border-indigo-500/20 bg-gradient-to-b from-white/5 to-transparent">
+            <h2 class="text-2xl md:text-4xl font-bold tracking-tight">Detayları Birlikte Netleştirelim</h2>
+            <p class="mt-4 text-gray-400 text-sm md:text-base max-w-xl mx-auto font-light">
+                Aklınızdaki web projesini doğrudan bana anlatın, sizin için en doğru çözümü ve tasarımı birlikte kuralım.
+            </p>
+            <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-6">
+                <!-- KENDİ TELEFONUNUZU YAZIN -->
+                <a href="https://wa.me/905416623453" class="w-full sm:w-auto flex items-center justify-center gap-3 bg-emerald-600 hover:bg-emerald-500 px-8 py-4 rounded-xl font-semibold tracking-wide transition shadow-xl shadow-emerald-600/10">
+                    <i class="fa-brands fa-whatsapp text-xl"></i> WhatsApp ile İletişime Geç
+                </a>
+                <a href="mailto:hilaleksi3@icloud.com" class="w-full sm:w-auto flex items-center justify-center gap-3 glass px-8 py-4 rounded-xl font-semibold tracking-wide hover:bg-white/5 transition">
+                    <i class="fa-solid fa-envelope text-indigo-400 text-lg"></i> E-Posta Gönder
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-gray-900 py-8 text-center text-xs text-gray-500 relative z-10">
+        <p>&copy; 2026 Hilal Ekşi. Tüm Hakları Saklıdır.</p>
+    </footer>
 
 </body>
 </html>
